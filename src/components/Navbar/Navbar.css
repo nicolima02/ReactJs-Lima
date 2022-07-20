@@ -1,0 +1,47 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0, 255, 255, 0.342);
+}
+
+.titulo{
+    color: rgb(82, 82, 82);
+}
+
+.botones{
+    display: flex;
+    align-items: center;
+}
+
+.botones button{
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-width: 0px;
+    background-color: rgba(0, 255, 255, 0.342);
+    color: rgb(82, 82, 82);
+    font-weight: 800;
+    transition: 1s;
+}
+
+.botones button:hover{
+    cursor: pointer;
+    background-color:rgba(0, 255, 255, 1) ;
+    transition: 1s;
+}
+
+.carrito{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 5px;
+}
+
+.saludo{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.imagen-carrito{
+    width: 10%;
+}
