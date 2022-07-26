@@ -1,0 +1,13 @@
+.botones-agregar{
+    display: flex;
+    justify-content: center;
+    
+}
+.botones-agregar button{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+h1{
+    margin: 0;
+}
