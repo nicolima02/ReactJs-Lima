@@ -4,19 +4,15 @@ import ItemList from '../ItemList/ItemList'
 import {useParams} from "react-router-dom"
 const ItemListContainer = () =>{
     const [productos, setProductos] = useState([])
-    const params = useParams()
+    const {categoriaId} = useParams()
     useEffect (() => {
-        if (params.categoriaId){
-            getProductByCategory(params.categoriaId).then(response => {
-                setProductos(response)
-            })
-        }else{
-            getProductos().then(response => {
+        const asyncFunction = categoriaId ? getProductByCategory : getProductos
+        asyncFunction(categoriaId).then(response =>{
             setProductos(response)
         })
-        }
         
-    }, [params.categoriaId])
+        
+    }, [categoriaId])
 
 
     return( 

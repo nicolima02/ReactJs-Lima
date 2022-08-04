@@ -6,7 +6,11 @@
 
 .titulo{
     color: rgb(82, 82, 82);
+}
+
+.titulo a{
     text-decoration: none;
+    color: rgb(82, 82, 82);
 }
 
 .botones{
@@ -23,6 +27,7 @@
     color: rgb(82, 82, 82);
     font-weight: 800;
     transition: 1s;
+    text-decoration: none;
 }
 
 .botones button:hover{
