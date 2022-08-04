@@ -4,4 +4,14 @@
     outline-color: gray;
     width: fit-content;
     margin: auto;
+    padding-bottom: 10px;
+}
+
+.boton{
+    outline-style: solid;
+    padding: 5px;
+    background-color: rgb(0, 68, 255);
+    text-decoration:none;
+    color: white;
+    border-radius: 30px;  
 }

@@ -6,6 +6,7 @@
 
 .titulo{
     color: rgb(82, 82, 82);
+    text-decoration: none;
 }
 
 .botones{
@@ -13,7 +14,7 @@
     align-items: center;
 }
 
-.botones button{
+.botones .button{
     padding: 5px;
     padding-left: 15px;
     padding-right: 15px;
@@ -46,3 +47,4 @@
 .imagen-carrito{
     width: 10%;
 }
+

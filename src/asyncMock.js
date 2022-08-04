@@ -1,28 +1,31 @@
 const productos = [
     {
-        codigo: "1111",
+        id:"111",
         nombre: "Cartel Naranja",
         precio: 500,
-        categoria: "Retroiluminado",
+        categoria: "retroiluminado",
         img: "./images/Trabajo1.jpg",
-        stock: 13
+        stock: 13,
+        descripcion: "Cartel naranja retroiluminado"
         
     },
     {
-        codigo:"2222",
+        id:"222",
         nombre: "Cartel Azul",
         precio: 1000,
-        categoria: "Neon",
+        categoria: "neon",
         img: "./images/Trabajo2.jpg",
-        stock: 15
+        stock: 15,
+        descripcion: "Cartel azul Neon"
     },
     {
-        codigo: "3333",
+        id: "333",
         nombre: "Cartel Blanco",
         precio: 1500,
-        categoria: "MDF",
+        categoria: "mdf",
         img: "./images/Trabajo4.jpg",
-        stock: 45
+        stock: 45,
+        descripcion: "Cartel blanco MDF"
     }
 ]
 
@@ -30,14 +33,24 @@ export const getProductos = () => {
     return new Promise ((resolve) =>{
         setTimeout(() => {
             resolve(productos)
-        }, 2000);
+        }, 1000);
     })
 }
 
-export const getProducto = () => {
+export const getProducto = (id) => {
     return new Promise ((resolve) =>{
         setTimeout(() => {
-            resolve(productos[0])
-        }, 2000);
+            resolve(productos.find(prod => prod.id === id))
+        }, 10);
+    })
+}
+
+
+export const getProductByCategory = (categoryId) =>{
+    return new Promise (resolve=>{
+        setTimeout(()=>{
+            resolve(productos.filter(prod => prod.categoria === categoryId))
+        }, 10)
+        
     })
 }
