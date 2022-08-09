@@ -1,5 +1,8 @@
 import {useState} from 'react'
 import "./ItemCount.css"
+import {useContext} from "react"
+import {context} from "../../Context"
+
 
 const ItemCount = (props) =>{
     const [count, setCount] = useState(parseInt(props.initial))
@@ -16,6 +19,8 @@ const ItemCount = (props) =>{
             }
         
     }
+    const contador = useContext(context)
+
     return(
         <div>
             
@@ -24,7 +29,7 @@ const ItemCount = (props) =>{
                 <h1>{count}</h1>
                 <button onClick={increment}>+</button>
             </div>
-                <button onClick={() => props.onAdd(count)}>Agregar Productos</button>
+                <button onClick={()=> contador.cambiarConteo(count)}>Agregar Productos</button>
             
         </div>
     )

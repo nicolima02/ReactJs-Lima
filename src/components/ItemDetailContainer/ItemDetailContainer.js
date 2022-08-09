@@ -3,7 +3,8 @@ import {useEffect, useState} from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import {useParams} from "react-router-dom"
 
-const ItemDetailContainer = () =>{  
+const ItemDetailContainer = () =>{
+
     const [producto, setProducto] = useState({})
     const {productoId} = useParams()
     useEffect (() => {
@@ -13,7 +14,7 @@ const ItemDetailContainer = () =>{
     }, [])
     return( 
         <>
-            <ItemDetail producto={producto} {...producto} />
+            <ItemDetail producto={producto} {...producto}/>
         </>
     
         
