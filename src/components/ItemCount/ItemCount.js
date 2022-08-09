@@ -24,10 +24,10 @@ const ItemCount = (props) =>{
                 <h1>{count}</h1>
                 <button onClick={increment}>+</button>
             </div>
-                <button>Agregar Productos</button>
+                <button onClick={() => props.onAdd(count)}>Agregar Productos</button>
             
         </div>
     )
-}
+}    
 
 export default ItemCount 
