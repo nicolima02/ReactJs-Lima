@@ -1,12 +1,12 @@
-import { useContext, useState } from "react"
-import {context} from "../../Context"
+
+import { useContext} from "react"
+import {context} from "../../CartContext"
 const CartWidget = () =>{  
-    const cantidad = useContext(context)
-    console.log(cantidad.contador)
+    const contador = useContext(context)
     return (
         <div className="carrito"> 
         <img src="images/carrito.png" alt="carrito" className="imagen-carrito"/>     
-        <p>{cantidad.contador}</p>
+        <p>{contador.cambiarConteo()}</p>
         </div>
     )
 }
