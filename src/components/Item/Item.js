@@ -1,6 +1,4 @@
 import "./Item.css"
-// import ItemCount from "../ItemCount/ItemCount"
-// import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
 import { Link } from "react-router-dom"
 
 const Item = ({productos, setPage, id}) =>{

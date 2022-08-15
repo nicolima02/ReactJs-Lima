@@ -3,7 +3,7 @@ export const context= createContext()
 const {Provider} = context
 
 const CartContext = ({children}) =>{
-    const [contador, setContador] = useState(0)
+    const [contador, setContador] = useState()
     const cambiarConteo = ()=>{
         let acc = 0
         cart.forEach(prod => acc += prod.cant)
@@ -44,6 +44,12 @@ const CartContext = ({children}) =>{
         setCart([])
     }
 
+    const getTotal = ()=>{
+        let precioTotal = 0
+        cart.map(cart => precioTotal += cart.precio*cart.cant)
+        return precioTotal
+    }
+
     const getProductQuantity = (id) =>{
         const product = cart.find(prod=> prod.id === id)
         return product?.cant
@@ -55,6 +61,7 @@ const CartContext = ({children}) =>{
         addItem,
         cart,
         isInCart,
+        getTotal,
         removeItem,
         clearCart,
         getProductQuantity

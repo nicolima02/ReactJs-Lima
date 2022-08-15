@@ -4,6 +4,7 @@ import ItemCount from "../ItemCount/ItemCount"
 import {useState} from "react"
 import {useContext} from "react"
 import {context} from "../../CartContext"
+import {Link} from "react-router-dom"
 
 const ItemDetail = ({id, nombre, img, precio, stock, descripcion}) => {
     const addItem = useContext(context)
@@ -14,7 +15,12 @@ const ItemDetail = ({id, nombre, img, precio, stock, descripcion}) => {
     const holdOnAdd = (cant) =>{
         setCantidad(cantidad)        
         addItem.addItem({id,nombre,precio,cant})
-        contador.cambiarConteo() 
+        contador.cambiarConteo()
+        return(
+            <div>
+                <Link to="/cart">Terminar compra</Link>
+            </div>
+        ) 
     }
     return(
         
@@ -24,7 +30,7 @@ const ItemDetail = ({id, nombre, img, precio, stock, descripcion}) => {
                 <p>${precio}</p>
                 <p>Stock disponible: {stock}</p>
                 <p>Descripcion:  {descripcion}</p>
-                <ItemCount initial={0} stock={stock} onAdd={holdOnAdd} /> 
+                <ItemCount initial={1} stock={stock} onAdd={holdOnAdd} /> 
             </div> 
         </>
     )
