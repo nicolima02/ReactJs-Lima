@@ -1,10 +1,9 @@
-
 import "../Item/Item.css"
 import ItemCount from "../ItemCount/ItemCount"
 import {useState} from "react"
 import {useContext} from "react"
 import {context} from "../../CartContext"
-import {Link} from "react-router-dom"
+
 
 const ItemDetail = ({id, nombre, img, precio, stock, descripcion}) => {
     const addItem = useContext(context)
@@ -16,11 +15,6 @@ const ItemDetail = ({id, nombre, img, precio, stock, descripcion}) => {
         setCantidad(cantidad)        
         addItem.addItem({id,nombre,precio,cant})
         contador.cambiarConteo()
-        return(
-            <div>
-                <Link to="/cart">Terminar compra</Link>
-            </div>
-        ) 
     }
     return(
         
