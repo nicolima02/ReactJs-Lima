@@ -2,6 +2,8 @@ import {useContext, useState, useEffect} from "react"
 import {context} from "../../CartContext"
 import {Link} from "react-router-dom"
 import "./Cart.css"
+import {addDoc, collection, Timestamp} from "firebase/firestore"
+import {db} from "../../services/firebase/index"
 
 const Cart = () =>{
     const total = useContext(context)
@@ -22,7 +24,21 @@ const Cart = () =>{
             setFlag(true)
         }
     },[cantidadTotal])
+    const createOrder= () =>{
+        const objectOrder = {
+            buyer:{
+                nombre: "Nicolás Lima",
+                tel: 3515555555,
+                mail: "nico@gmail.com"
+            },
+            items: cart,
+            total: precioTotal,
+            date: Timestamp.fromDate(new Date())
+        }
 
+        addDoc(collection(db, "orders"), objectOrder).then(response =>{
+        })
+    }
     if(flag === false){
         if(cart[0]?.cant > 0){
             setFlag(true)
@@ -42,10 +58,13 @@ const Cart = () =>{
                             <p>x{cart.cant}</p>
                             <button className="boton_q" onClick={()=> remove.removeItem(cart.id)}>Quitar Producto</button>
                         </div>)}
-                        <div>
+                        <div className="total">
                             <p>Precio Total: ${precioTotal}</p>
                         </div>
-                        <Link to="/"><button className="boton_borrar" onClick={()=> clear.clearCart()}>Borrar pedido</button></Link>
+                        <div className="botones1">
+                            <Link to="/"><button className="boton_borrar" onClick={()=> clear.clearCart()}>Borrar pedido</button></Link>
+                            <button onClick={createOrder}className="boton_generar">Generar orden</button>
+                        </div>
                     </div>
                 </>
                 )
